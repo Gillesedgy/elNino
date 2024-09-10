@@ -28,5 +28,65 @@ public class Appointments {
     @JoinColumn(name = "stylists_id", nullable = false)
     private List<Stylists> stylists_id;
 
+    public Appointments(UUID appointmentId, LocalDateTime timestamp, String service_type, List<Customer> customer_id, List<Stylists> stylists_id) {
+        this.appointmentId = appointmentId;
+        this.timestamp = timestamp;
+        this.service_type = service_type;
+        this.customer_id = customer_id;
+        this.stylists_id = stylists_id;
+    }
 
+    public Appointments() {
+    }
+
+    public UUID getAppointmentId() {
+        return appointmentId;
+    }
+
+    public void setAppointmentId(UUID appointmentId) {
+        this.appointmentId = appointmentId;
+    }
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getService_type() {
+        return service_type;
+    }
+
+    public void setService_type(String service_type) {
+        this.service_type = service_type;
+    }
+
+    public List<Customer> getCustomer_id() {
+        return customer_id;
+    }
+
+    public void setCustomer_id(List<Customer> customer_id) {
+        this.customer_id = customer_id;
+    }
+
+    public List<Stylists> getStylists_id() {
+        return stylists_id;
+    }
+
+    public void setStylists_id(List<Stylists> stylists_id) {
+        this.stylists_id = stylists_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Appointments{" +
+                "appointmentId=" + appointmentId +
+                ", timestamp=" + timestamp +
+                ", service_type='" + service_type + '\'' +
+                ", customer_id=" + customer_id +
+                ", stylists_id=" + stylists_id +
+                '}';
+    }
 }
