@@ -29,8 +29,8 @@ public class Appointments {
     private List<Stylists> stylists_id;
 
     public Appointments(LocalDateTime timestamp, String service_type, List<Customer> customer_id, List<Stylists> stylists_id) {
-//        this.appointmentId = appointmentId;
-//        this.timestamp = timestamp;
+        this.appointmentId = appointmentId;
+        this.timestamp = timestamp;
         this.service_type = service_type;
         this.customer_id = customer_id;
         this.stylists_id = stylists_id;
