@@ -28,9 +28,9 @@ public class Appointments {
     @JoinColumn(name = "stylists_id", nullable = false)
     private List<Stylists> stylists_id;
 
-    public Appointments(UUID appointmentId, LocalDateTime timestamp, String service_type, List<Customer> customer_id, List<Stylists> stylists_id) {
-        this.appointmentId = appointmentId;
-        this.timestamp = timestamp;
+    public Appointments(LocalDateTime timestamp, String service_type, List<Customer> customer_id, List<Stylists> stylists_id) {
+//        this.appointmentId = appointmentId;
+//        this.timestamp = timestamp;
         this.service_type = service_type;
         this.customer_id = customer_id;
         this.stylists_id = stylists_id;
@@ -43,9 +43,6 @@ public class Appointments {
         return appointmentId;
     }
 
-    public void setAppointmentId(UUID appointmentId) {
-        this.appointmentId = appointmentId;
-    }
 
     public LocalDateTime getTimestamp() {
         return timestamp;
