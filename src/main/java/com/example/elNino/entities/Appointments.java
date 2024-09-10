@@ -1,38 +1,32 @@
 package com.example.elNino.entities;
 
-import java.util.Date;
+import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
+@Entity
 public class Appointments {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "appointment_id", unique = true, nullable = false)
     private UUID appointmentId;
-    private Date appointmentDate;
+
+    @Column(name = "time_stamp", nullable = false)
+    private LocalDateTime timestamp;
+
+    @Column(name = "service_type")
     private String service_type;
 
     // Relationships
-    private Customer customer;
-    private
+    @OneToMany
+    @JoinColumn(name = "customer_id", nullable = false)
+    private List<Customer> customer_id;
 
-    public UUID getAppointmentId() {
-        return appointmentId;
-    }
+    @OneToMany
+    @JoinColumn(name = "stylists_id", nullable = false)
+    private List<Stylists> stylists_id;
 
-    public void setAppointmentId(UUID appointmentId) {
-        this.appointmentId = appointmentId;
-    }
 
-    public Date getAppointmentDate() {
-        return appointmentDate;
-    }
-
-    public void setAppointmentDate(Date appointmentDate) {
-        this.appointmentDate = appointmentDate;
-    }
-
-    public String getService_type() {
-        return service_type;
-    }
-
-    public void setService_type(String service_type) {
-        this.service_type = service_type;
-    }
 }
