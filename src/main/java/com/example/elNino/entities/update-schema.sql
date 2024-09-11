@@ -35,8 +35,8 @@ ALTER TABLE customer
 ALTER TABLE customer
     ADD CONSTRAINT uc_customer_phone_number UNIQUE (phone_number);
 
-ALTER TABLE customer
-    ADD CONSTRAINT FK_CUSTOMER_ON_CUSTOMER FOREIGN KEY (customer_id) REFERENCES stylists (id);
+ALTER TABLE stylists
+    ADD CONSTRAINT FK_CUSTOMER_ON_CUSTOMER FOREIGN KEY (customer_id) REFERENCES customer (customer_id);
 
 ALTER TABLE customer
     ADD CONSTRAINT FK_CUSTOMER_ON_CUSTOMER9XEZ7c FOREIGN KEY (customer_id) REFERENCES appointments (appointment_id);

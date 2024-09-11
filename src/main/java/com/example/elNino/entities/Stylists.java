@@ -29,9 +29,13 @@ public class Stylists {
     @Column(name = "Style_image", nullable = false)
     private String style_image;
 
-    @OneToMany
-    @JoinColumn(name = "customer_id", nullable = false)
-    private List<Customer> customer_id;
+//    @OneToMany
+////    @JoinColumn(name = "customer_id", nullable = false)
+//    private List<Customer> customer_id;
+
+    @OneToMany(mappedBy = "stylist")
+//    @JoinColumn(name = "customer_id", nullable = false)
+    private List<Appointments> appointments;
 
     public Long getId() {
         return id;
@@ -73,13 +77,13 @@ public class Stylists {
         this.availability = availability;
     }
 
-    public List<Customer> getCustomer_id() {
-        return customer_id;
-    }
-
-    public void setCustomer_id(List<Customer> customer_id) {
-        this.customer_id = customer_id;
-    }
+//    public List<Customer> getCustomer_id() {
+//        return customer;
+//    }
+//
+//    public void setCustomer_id(List<Customer> customer_id) {
+//        this.customer = customer_id;
+//    }
 
     public String getStyle_image() {
         return style_image;

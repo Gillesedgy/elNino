@@ -10,7 +10,7 @@ import java.util.UUID;
 @Table(name = "Appointments")
 public class Appointments {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "appointment_id", unique = true, nullable = false)
     private UUID appointmentId;
 
@@ -21,20 +21,24 @@ public class Appointments {
     private String service_type;
 
     // Relationships
-    @OneToMany
-    @JoinColumn(name = "customer_id", nullable = false)
-    private List<Customer> customer_id;
+//    @OneToMany
+//    @JoinColumn(name = "customer_id", nullable = false)
+    @ManyToOne
+//    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
-    @OneToMany
-    @JoinColumn(name = "stylists_id", nullable = false)
-    private List<Stylists> stylists_id;
+//    @OneToMany
+//    @JoinColumn(name = "stylists_id", nullable = false)
+    @ManyToOne
+//    @JoinColumn(name = "stylists_id")
+    private Stylists stylist;
 
-    public Appointments(LocalDateTime timestamp, String service_type, List<Customer> customer_id, List<Stylists> stylists_id) {
+    public Appointments(LocalDateTime timestamp, String service_type, Customer customer, Stylists stylist) {
         this.appointmentId = appointmentId;
         this.timestamp = timestamp;
         this.service_type = service_type;
-        this.customer_id = customer_id;
-        this.stylists_id = stylists_id;
+        this.customer = customer;
+        this.stylist = stylist;
     }
 
     public Appointments() {
@@ -64,19 +68,19 @@ public class Appointments {
         this.service_type = service_type;
     }
 
-    public List<Customer> getCustomer_id() {
-        return customer_id;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomer_id(List<Customer> customer_id) {
-        this.customer_id = customer_id;
+    public void setCustomer(Customer customer_id) {
+        this.customer = customer_id;
     }
 
-    public List<Stylists> getStylists_id() {
-        return stylists_id;
+    public Stylists getStylist() {
+        return stylist;
     }
 
-    public void setStylists_id(List<Stylists> stylists_id) {
-        this.stylists_id = stylists_id;
+    public void setStylist(Stylists stylists_id) {
+        this.stylist = stylists_id;
     }
 }

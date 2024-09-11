@@ -2,6 +2,9 @@ package com.example.elNino.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "Customer")
 public class Customer {
@@ -22,6 +25,9 @@ public class Customer {
 
     @Column(name = "email", unique = true, nullable = false)
     private String email;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Appointments> appointments = new ArrayList<>();
 
     public Customer() {
     }
