@@ -26,6 +26,9 @@ public class Stylists {
     @Column(name = "Availability", nullable = false)
     private String availability;
 
+    @Column(name = "Style_image", nullable = false)
+    private String style_image;
+
     @OneToMany
     @JoinColumn(name = "customer_id", nullable = false)
     private List<Customer> customer_id;
@@ -76,5 +79,12 @@ public class Stylists {
 
     public void setCustomer_id(List<Customer> customer_id) {
         this.customer_id = customer_id;
+    }
+
+    public String getStyle_image() {
+        return style_image;
+    }
+    public void setStyle_image(String style_image) {
+        this.style_image = style_image;
     }
 }

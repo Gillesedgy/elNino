@@ -1,6 +1,6 @@
 package com.example.elNino.controllers;
 
-import com.example.elNino.services.CustomerService;
+import com.example.elNino.services.classes.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +13,5 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-
-
 }
+

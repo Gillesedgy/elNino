@@ -54,4 +54,5 @@ public class CustomerDto {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
 }
