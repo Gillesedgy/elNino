@@ -6,6 +6,8 @@ public class CustomerDto {
     private String lastName;
     private String email;
     private String phone;
+
+
     public CustomerDto() {}
     public CustomerDto(Long id, String firstName, String lastName, String email, String phone) {
         this.id = id;
