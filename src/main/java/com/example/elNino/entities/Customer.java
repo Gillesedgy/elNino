@@ -6,25 +6,23 @@ import jakarta.persistence.*;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "customer_id", unique = true, nullable = false)
     private Long id;
+
     @Column( name = "fist_name", nullable = false)
     private String firstName;
+
     @Column( name = "last_name", nullable = false)
     private String lastName;
+
     @Column(name = "phone_number", unique = true, nullable = false)
     private Integer phoneNumber;
+
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
     public Customer() {
-    }
-
-    public Customer(String firstName, String lastName, Integer phoneNumber, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
     }
 
     public Customer(Long id, String firstName, String lastName, Integer phoneNumber, String email) {
@@ -73,17 +71,6 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                ", email='" + email + '\'' +
-                '}';
     }
 }
 

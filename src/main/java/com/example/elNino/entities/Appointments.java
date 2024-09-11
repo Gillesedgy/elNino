@@ -43,6 +43,9 @@ public class Appointments {
         return appointmentId;
     }
 
+    public void setAppointmentId(UUID appointmentId) {
+        this.appointmentId = appointmentId;
+    }
 
     public LocalDateTime getTimestamp() {
         return timestamp;
@@ -74,16 +77,5 @@ public class Appointments {
 
     public void setStylists_id(List<Stylists> stylists_id) {
         this.stylists_id = stylists_id;
-    }
-
-    @Override
-    public String toString() {
-        return "Appointments{" +
-                "appointmentId=" + appointmentId +
-                ", timestamp=" + timestamp +
-                ", service_type='" + service_type + '\'' +
-                ", customer_id=" + customer_id +
-                ", stylists_id=" + stylists_id +
-                '}';
     }
 }

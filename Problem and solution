@@ -1,0 +1,8 @@
+[elNino] [ restartedMain] j.LocalContainerEntityManagerFactoryBean :
+Failed to initialize JPA EntityManagerFactory: [PersistenceUnit:
+default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException:
+Duplicate property mapping of _customer_id_customer_idBackref found in com.example.elNino.entities.Customer
+
+solution
+disabled the auto-configuration of the DataSource.
+@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
