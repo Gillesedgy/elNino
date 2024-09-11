@@ -1,29 +1,37 @@
 package com.example.elNino.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "Customer")
 public class Customer {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Column(name = "customer_id", unique = true, nullable = false)
     private Long id;
+
+    @Column( name = "fist_name", nullable = false)
     private String firstName;
+
+    @Column( name = "last_name", nullable = false)
     private String lastName;
+
+    @Column(name = "phone_number", unique = true, nullable = false)
+    private Integer phoneNumber;
+
+    @Column(name = "email", unique = true, nullable = false)
+    private String email;
 
     public Customer() {
     }
 
-    public Customer(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    public Customer(Long id, String firstName, String lastName) {
+    public Customer(Long id, String firstName, String lastName, Integer phoneNumber, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
     }
 
     public Long getId() {
@@ -50,12 +58,20 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
+    public Integer getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(Integer phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
+
