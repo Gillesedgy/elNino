@@ -1,35 +1,28 @@
 package com.example.elNino.dto;
-
 import org.antlr.v4.runtime.misc.NotNull;
+import org.springframework.stereotype.Component;
 
-public class CustomerResponseDto {
-    private long id;
+@Component
+public class CustomerRequestDto {
+
+    @NotNull
     private String firstName;
-    
+    @NotNull
     private String lastName;
-    
+    @NotNull
     private String email;
-    
+    @NotNull
     private String phone;
 
-    public CustomerResponseDto(long id, String firstName, String lastName, String email, String phone) {
-        this.id = id;
+
+    public CustomerRequestDto(String firstName, String lastName, String email, String phone) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
     }
 
-    public CustomerResponseDto(){}
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
+    public CustomerRequestDto() {}
     public String getFirstName() {
         return firstName;
     }
