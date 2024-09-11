@@ -3,7 +3,7 @@ package com.example.elNino.controllers;
 import com.example.elNino.dto.CustomerRequestDto;
 import com.example.elNino.dto.CustomerResponseDto;
 import com.example.elNino.entities.Customer;
-import com.example.elNino.services.classes.CustomerService;
+import com.example.elNino.services.classes.CustomerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/customer")
 public class CustomerController {
     @Autowired
-    private CustomerService customerService;
+    private CustomerServiceImpl customerService;
 
-    @PostMapping
+    @PostMapping("/register")
     public ResponseEntity<CustomerResponseDto> createCustomer( @RequestBody @Validated CustomerRequestDto customerRequestDto) {
         Customer customer = new Customer();
         customer.setFirstName(customerRequestDto.getFirstName());

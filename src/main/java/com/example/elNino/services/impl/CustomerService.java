@@ -6,6 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface CustomerServiceImpl {
-//    ResponseEntity<CustomerResponseDto> save(Customer customer);
+public interface CustomerService {
+    ResponseEntity<CustomerResponseDto> save(Customer customer);
 }
